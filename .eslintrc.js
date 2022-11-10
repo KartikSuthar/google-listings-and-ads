@@ -30,7 +30,13 @@ module.exports = {
 			'@pmmmwh/react-refresh-webpack-plugin',
 			'react-transition-group',
 		],
-		'import/resolver': { webpack: webpackResolver },
+		'import/resolver': {
+			webpack: webpackResolver,
+			// Resolve explicit DEWP alias.
+			alias: {
+				map: [ [ 'extracted/(.*)', '' ] ],
+			},
+		},
 	},
 	rules: {
 		'@wordpress/no-unsafe-wp-apis': 1,
